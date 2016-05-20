@@ -47,6 +47,8 @@ class ChatBot(object):
 
     user_last_msg_dict = {}
 
+    my_server = None
+
     spam_duration = 5 #seconds 
 
     kick_in_progress = False
@@ -139,7 +141,7 @@ class ChatBot(object):
 
     @asyncio.coroutine
     def cmd_music(self, message):
-        if not(self.client.is_voice_connected()):
+        if not(self.client.is_voice_connected(self.my_server)):
             self.voice_client = yield from self.client.join_voice_channel(self.voice_channel)
         youtubeURL = message.content.split()[1]
         if self.player is not None and self.player.is_playing():
@@ -241,6 +243,7 @@ class ChatBot(object):
             print('Username: ' + self.client.user.name)
             print('ID: ' + self.client.user.id)
             for server in self.client.servers:
+                self.my_server = server
                 for member in server.members:
                     self.user_map[member.name] = member
             self.last_user_id_refresh = unix_time(datetime.datetime.utcnow().replace(microsecond=0))
@@ -284,5 +287,6 @@ class ChatBot(object):
             else:
                 self.bot_deleted_messages.remove(message.id)
 
+        #discord.opus.load_opus("libopus.0.dylib")
         discord.opus.load_opus("libopus.so.0.5.2")
         self.client.run(os.environ['DISCORD_SECRET'])
