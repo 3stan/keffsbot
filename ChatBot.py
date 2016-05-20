@@ -284,5 +284,5 @@ class ChatBot(object):
             else:
                 self.bot_deleted_messages.remove(message.id)
 
-        discord.opus.load_opus("libopus.0.dylib")
+        discord.opus.load_opus(".heroku/python/lib/python3.4/site-packages/discord/bin/libopus-0.x64.dll")
         self.client.run(os.environ['DISCORD_SECRET'])
