@@ -1,10 +1,12 @@
 import asyncio
+import os
 import pafy
 
 from HandlerBase import HandlerBase
 
 class MusicHandler(HandlerBase):
     allowed_channel = "music"
+    #allowed_channel = "bottesting"
 
     server = None
     voice_channel = None
@@ -29,7 +31,7 @@ class MusicHandler(HandlerBase):
         else:
             video = pafy.new(youtubeURL)
             bestaudio = video.getbestaudio()
-            title = bestaudio.download()
+            title = bestaudio.download(quiet = True)
             self.create_player_and_play(title)
 
     def after_routine(self):
@@ -39,7 +41,7 @@ class MusicHandler(HandlerBase):
             self.music_queue = self.music_queue[1:]
             video = pafy.new(nextSong)
             bestaudio = video.getbestaudio()
-            title = bestaudio.download()
+            title = bestaudio.download(quiet = True)
             self.create_player_and_play(title)
 
     def create_player_and_play(self, title):
@@ -73,4 +75,5 @@ class MusicHandler(HandlerBase):
         channels = self.client.get_all_channels()
         for channel in channels:
             if(channel.name == "wut"):
+            #if(channel.name == "test"):
                 self.voice_channel = channel
