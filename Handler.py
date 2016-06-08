@@ -35,7 +35,7 @@ class Handler(object):
             "!music": music_handler,
             "!stop": music_handler,
             "!queue": music_handler,
-            "!whenispax:" pax_handler
+            "!whenispax": pax_handler
         }
 
         commands_handler.update_commands(self.available_commands_dict.keys())
