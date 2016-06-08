@@ -24,6 +24,7 @@ class Handler(object):
         topic_handler = TopicHandler.TopicHandler(self.client)
         commands_handler = CommandsHandler.CommandsHandler(self.client)
         music_handler = MusicHandler.MusicHandler(self.client, server)
+        pax_handler = PaxHandler.PaxHandler(self.client)
         self.available_commands_dict = {
             '!roll': roll_handler,
             #'!ignore': ignore_handler,
@@ -33,7 +34,8 @@ class Handler(object):
             '!commands': commands_handler,
             "!music": music_handler,
             "!stop": music_handler,
-            "!queue": music_handler
+            "!queue": music_handler,
+            "!whenispax:" pax_handler
         }
 
         commands_handler.update_commands(self.available_commands_dict.keys())
