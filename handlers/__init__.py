@@ -1,1 +1,1 @@
-__all__ = ['CommandsHandler', 'IgnoreHandler', 'MusicHandler', 'RollHandler', 'TopicHandler']
+__all__ = ['CommandsHandler', 'IgnoreHandler', 'MusicHandler', 'RollHandler', 'TopicHandler', 'PaxHandler']
