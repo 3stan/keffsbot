@@ -7,7 +7,7 @@ from HandlerBase import HandlerBase
 
 class PaxHandler(HandlerBase):
 
-    def days_hours_minutes(td):
+    def days_hours_minutes(self, td):
         return td.days, td.seconds//3600, (td.seconds//60)%60
 
     @asyncio.coroutine
