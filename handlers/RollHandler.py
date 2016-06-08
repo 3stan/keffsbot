@@ -20,5 +20,7 @@ class RollHandler(HandlerBase):
                     yield from self.client.send_message(message.channel, '{} rolled {}'.format(message.author.name, random.uniform(0, float(tokenized_content[1]))))
                 else:
                     yield from self.client.send_message(message.channel, '{} tried to fuck up the bot. Nice try.'.format(message.author.name))
+            else:
+                yield from self.client.send_message(message.channel, '{} rolled {}'.format(message.author.name, random.randint(0, 100)))
         else:
             yield from self.client.send_message(message.channel, '{} rolled {}'.format(message.author.name, random.randint(0, 100)))
