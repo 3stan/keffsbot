@@ -13,5 +13,5 @@ class PaxHandler(HandlerBase):
     @asyncio.coroutine
     def handle(self, message):
         delta = datetime.datetime(2016, 9, 2, hour = 10) - datetime.datetime.now()
-        days, hours, minutes = days_hours_minutes(delta)
+        days, hours, minutes = self.days_hours_minutes(delta)
         yield from self.client.send_message(message.channel, "{} days, {} hours, {} mins left until PAX Prime!}".format(days, hours, minutes))
