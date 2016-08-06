@@ -1,1 +1,1 @@
-worker: wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-32bit-static.tar.xz && tar -xvf ffmpeg-release-32bit-static.tar.xz && export PATH=/app/ffmpeg-3.0.2-32bit-static/:$PATH && pip install git+https://github.com/Rapptz/discord.py@async && python main.py
+worker: wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-32bit-static.tar.xz && tar -xvf ffmpeg-release-32bit-static.tar.xz && export PATH=/app/ffmpeg-3.0.2-32bit-static/:$PATH && python main.py
