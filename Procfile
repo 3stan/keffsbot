@@ -1,1 +1,1 @@
-worker: wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-32bit-static.tar.xz && mkdir ffmeg && tar -xvf ffmpeg-release-32bit-static.tar.xz -C ffmpeg && export PATH=/app/ffmpeg/:$PATH && echo $PATH && whereis ffmpeg && python main.py
+worker: wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-32bit-static.tar.xz && mkdir ffmpeg && tar -xvf ffmpeg-release-32bit-static.tar.xz -C ffmpeg --strip-components 1 && export PATH=/app/ffmpeg/:$PATH && echo $PATH && whereis ffmpeg && python main.py
