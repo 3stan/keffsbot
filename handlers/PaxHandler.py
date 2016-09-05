@@ -16,4 +16,5 @@ class PaxHandler(HandlerBase):
         days, hours, minutes = self.days_hours_minutes(delta)
         seconds = delta.seconds % 60
         micro = delta.microseconds % 1000
-        yield from self.client.send_message(message.channel, "{} days, {} hours, {} mins, {} seconds, {} MICROSECONDS left until PAX Prime!".format(days, hours, minutes, seconds, micro))
+        yield from self.client.send_message(message.channel, "PAX IS OVER.")
+        #yield from self.client.send_message(message.channel, "{} days, {} hours, {} mins, {} seconds, {} MICROSECONDS left until PAX Prime!".format(days, hours, minutes, seconds, micro))
